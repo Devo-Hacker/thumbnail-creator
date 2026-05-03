@@ -2,28 +2,55 @@
 import { CheckIcon, ChevronRightIcon, VideoIcon } from "lucide-react";
 import TiltedImage from "../components/TiltImage";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
+
+    const navigate = useNavigate();
+
     const specialFeatures = [
-        "No credit card",
-        "30 days free trial",
-        "Setup in 10 minutes",
+        "No design skills needed",
+        "Fast generation", 
+        "Convert your ideas into visuals",
     ];
 
     return (
         <div className="relative flex flex-col items-center justify-center px-4 md:px-16 lg:px-24 xl:px-32">
-            <div className="absolute top-30 -z-10 left-1/4 size-72 bg-pink-600 blur-[300px]"></div>
-            <motion.a href="https://prebuiltui.com?utm_source=pixels" className="group flex items-center gap-2 rounded-full p-1 pr-3 mt-44 text-pink-100 bg-pink-200/15"
+            <style>{`
+                @keyframes rotate {
+                    100% {
+                        transform: rotate(1turn);
+                    }
+                }
+            
+                .rainbow::before {
+                    content: '';
+                    position: absolute;
+                    z-index: -2;
+                    left: -50%;
+                    top: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background-position: 100% 50%;
+                    background-repeat: no-repeat;
+                    background-size: 50% 30%;
+                    filter: blur(6px);
+                    background-image: linear-gradient(#00f0ff, #7b00ff, #ff0080, #00f0ff);
+                    animation: rotate 4s linear infinite;
+                }
+            `}</style>
+            <div className="absolute top-30 -z-10 left-1/4 size-72 bg-violet-600 blur-[300px]"></div>
+            <motion.a href="https://prebuiltui.com?utm_source=pixels" className="group flex items-center gap-2 rounded-full p-1 pr-3 mt-44 text-violet-100 bg-violet-200/15"
                 initial={{ y: -20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
             >
-                <span className="bg-pink-800 text-white text-xs px-3.5 py-1 rounded-full">
+                <span className="bg-violet-700 text-white text-xs px-3.5 py-1 rounded-full">
                     NEW
                 </span>
                 <p className="flex items-center gap-1">
-                    <span>Try 30 days free trial option </span>
+                    <span>Generate your first thumbnail for free</span>
                     <ChevronRightIcon size={16} className="group-hover:translate-x-0.5 transition duration-300" />
                 </p>
             </motion.a>
@@ -33,8 +60,8 @@ export default function HeroSection() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 240, damping: 70, mass: 1 }}
             >
-                Free template to start your{" "}
-                <span className="move-gradient px-3 rounded-xl text-nowrap">Next.js site.</span>
+                AI thumbnail generator for your{" "}
+                <span className="move-gradient px-3 rounded-xl text-nowrap">Youtube Videos</span>
             </motion.h1>
             <motion.p className="text-base text-center text-slate-200 max-w-lg mt-6"
                 initial={{ y: 50, opacity: 0 }}
@@ -42,19 +69,23 @@ export default function HeroSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
             >
-                No complexity. No noise. Just clean, reliable automation to boost your team’s efficiency.</motion.p>
+                Your thumbnail is why nobody's watching, Make them curious to get through your videos.</motion.p>
             <motion.div className="flex items-center gap-4 mt-8"
                 initial={{ y: 50, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
             >
-                <button className="bg-pink-600 hover:bg-pink-700 text-white rounded-full px-7 h-11">
-                    Get started
-                </button>
-                <button className="flex items-center gap-2 border border-pink-900 hover:bg-pink-950/50 transition rounded-full px-6 h-11">
+                {/* Only the Generate Now button is changed — rainbow animation added */}
+                <div className="rainbow relative z-0 overflow-hidden p-0.5 flex items-center justify-center rounded-full hover:scale-105 transition duration-300 active:scale-100">
+                    <button onClick={() => navigate('/generate')} className="px-7 h-11 text-white rounded-full font-medium bg-gray-800">
+                        Generate Now
+                    </button>
+                </div>
+
+                <button className="flex items-center gap-2 border border-violet-700 hover:bg-violet-950/50 transition rounded-full px-6 h-11">
                     <VideoIcon strokeWidth={1} />
-                    <span>Watch demo</span>
+                    <span>See how it goes</span>
                 </button>
             </motion.div>
 
@@ -66,7 +97,7 @@ export default function HeroSection() {
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.2, duration: 0.3 }}
                     >
-                        <CheckIcon className="size-5 text-pink-600" />
+                        <CheckIcon className="size-5 text-cyan-400" />
                         <span className="text-slate-400">{feature}</span>
                     </motion.p>
                 ))}
