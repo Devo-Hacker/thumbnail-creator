@@ -22,11 +22,117 @@ const Login = () => {
 
   return (
      <>
+     <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+        .login-wrap * { font-family: 'DM Sans', sans-serif; }
+        .login-wrap h1 { font-family: 'Sora', sans-serif; }
+
+        .login-panel {
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.10);
+          border-radius: 24px;
+          overflow: hidden;
+          display: flex;
+          width: 890px;
+          max-width: 95vw;
+          min-height: 550px;
+        }
+
+        .login-img-side {
+          position: relative;
+          flex: 1;
+          min-width: 0;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        }
+        .login-img-side img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+        }
+        .login-img-overlay {
+          position: relative;
+          z-index: 1;
+          padding: 28px;
+          background: linear-gradient(to top, rgba(0,0,0,0.70) 0%, transparent 100%);
+        }
+        .login-img-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(255,255,255,0.12);
+          border: 1px solid rgba(255,255,255,0.18);
+          border-radius: 100px;
+          padding: 6px 14px;
+          margin-bottom: 14px;
+        }
+        .login-img-badge-dot {
+          width: 7px; height: 7px;
+          border-radius: 50%;
+          background: #a78bfa;
+          animation: pdot 2s ease-in-out infinite;
+        }
+        @keyframes pdot { 0%,100%{opacity:1} 50%{opacity:0.35} }
+        .login-img-badge span { font-size: 12px; color: rgba(255,255,255,0.85); }
+        .login-img-tagline {
+          font-family: 'Sora', sans-serif;
+          font-size: 22px;
+          font-weight: 600;
+          color: #fff;
+          line-height: 1.35;
+          margin: 0;
+        }
+        .login-img-sub {
+          font-size: 13px;
+          color: rgba(255,255,255,0.50);
+          margin-top: 6px;
+          line-height: 1.5;
+        }
+
+        .login-form-side {
+          width: 360px;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        @media (max-width: 680px) {
+          .login-img-side { display: none; }
+          .login-form-side { width: 100%; }
+        }
+     `}</style>
      <SoftBackDrop />
-<div className='min-h-screen flex items-center justify-center'>
-    <form
+<div className='min-h-screen flex items-center justify-center login-wrap'>
+    <div className="login-panel">
+
+      {/* LEFT image panel */}
+      <div className="login-img-side">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1666277012790-bd7f5a15df84?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="CliqueBait visual"
+        />
+        <div className="login-img-overlay">
+          {/* <div className="login-img-badge">
+            <div className="login-img-badge-dot" />
+            <span>AI-powered Thumbnail generator</span>
+          </div> */}
+          <p className="login-img-tagline">Create content<br />that actually clicks.</p>
+          <p className="login-img-sub">Millions of creators trust CliqueBait<br />to generate engaging content instantly.</p>
+        </div>
+      </div>
+
+      {/* RIGHT form panel — original JSX untouched */}
+      <div className="login-form-side">
+        <form
                 onSubmit={handleSubmit}
-                className="w-full sm:w-87.5 text-center bg-white/6 border border-white/10 rounded-2xl px-8">
+                className="w-full sm:w-87.5 text-center  px-8">
                 <h1 className="text-white text-3xl mt-10 font-medium">
                     {state === "login" ? "Login" : "Sign up"}
                 </h1>
@@ -65,10 +171,10 @@ const Login = () => {
                     <span className="text-indigo-400 hover:underline ml-1">click here</span>
                 </p>
             </form>
-</div>
+      </div>
 
-            
-           
+    </div>
+</div>
         </>
   )
 }
