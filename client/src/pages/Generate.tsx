@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom"
-import type { IThumbnail } from "../assets/assets";
+import { colorSchemes, type AspectRatio, type IThumbnail, type ThumbnailStyle, } from "../assets/assets";
 import SoftBackDrop from "../components/SoftBackDrop";
-import { button } from "motion/react-client";
+import AspectRatioSelector from "../components/AspectRatioSelector";
 
 const generate = () => {
 
@@ -11,6 +11,16 @@ const generate = () => {
     const [additionalDetails, setAdditionalDetails] = useState('');
     const [thumbnail, setThumbnail] = useState<IThumbnail | null>(null);
     const [loading, setLoading] = useState(false);
+
+    const [aspectRatio ,setAspectRatio] = useState<AspectRatio>('16:9');
+    const [colorSchemeId, setColorSchemeId] = useState<string>(colorSchemes[0].id);
+    const [style, setStyle] = useState<ThumbnailStyle>('Bold & Graphic');
+
+   const [styleDropdownOpen , setStyleDropdownOpen] = useState(false);
+
+
+
+
   return (
     <>
       <SoftBackDrop/>
@@ -37,10 +47,16 @@ const generate = () => {
                   </div>
                   </div>
                     {/* aspect ratio selector */}
+                    <AspectRatioSelector value={aspectRatio} onChange={setAspectRatio}/>
+
+
                     <div className="space-y-2">
                       <label className="block text-sm font-medium">Additional Prompts
                         <span className="text-zinc-400 text-xs">(Optional)</span>
                       </label>
+                      <textarea value={additionalDetails} onChange={(e)=>setAdditionalDetails(e.target.value)} rows={3} placeholder="Add any specific elements according to your mood..." className="w-full
+                      px-4 py-3 rounded-lg border border-white/10 bg-white/6 text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 *
+                      focus:ring-indigo-700 resize-none"/>
                     </div>
                 </div>
 
