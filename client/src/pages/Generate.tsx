@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { colorSchemes, type AspectRatio, type IThumbnail, type ThumbnailStyle, } from "../assets/assets";
 import SoftBackDrop from "../components/SoftBackDrop";
 import AspectRatioSelector from "../components/AspectRatioSelector";
+import StyleSelector from "../components/StyleSelector";
 
 const generate = () => {
 
@@ -48,6 +49,7 @@ const generate = () => {
                   </div>
                     {/* aspect ratio selector */}
                     <AspectRatioSelector value={aspectRatio} onChange={setAspectRatio}/>
+                    <StyleSelector value={style} onChange={setStyle} isOpen={styleDropdownOpen} setIsOpen={setStyleDropdownOpen}/>
 
 
                     <div className="space-y-2">
