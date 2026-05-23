@@ -5,6 +5,7 @@ import SoftBackDrop from "../components/SoftBackDrop";
 import AspectRatioSelector from "../components/AspectRatioSelector";
 import StyleSelector from "../components/StyleSelector";
 import ColorSchemeSelector from "../components/ColorSchemeSelector";
+import PreviewPanel from "../components/PreviewPanel";
 
 const generate = () => {
 
@@ -73,6 +74,13 @@ const generate = () => {
             </div>
 
             {/* right pannel */}
+                <div>
+                  <div className="p-6 rounded-2xl bg-white/8 border border-white/10 shadow-xl">
+                    <h2 className="text-lg font-bold text-zinc-100 mb-4">Preview</h2>
+                    <PreviewPanel thumbnail={thumbnail} isLoading={loading} aspectRatio={aspectRatio}/>
+                  </div>
+                </div>
+
           </div>
         </main>
       </div>

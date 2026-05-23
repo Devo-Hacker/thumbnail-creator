@@ -38,7 +38,7 @@ export default function Navbar() {
 
                 </div>
 
-                <button onClick={()=>navigate('/login')} className="hidden md:block px-6 py-2.5 bg-pink-600 hover:bg-pink-700 active:scale-95 transition-all rounded-full">
+                <button onClick={()=>navigate('/login')} className="hidden md:block px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all rounded-full">
                     Get Started
                 </button>
                 <button onClick={() => setIsOpen(true)} className="md:hidden">

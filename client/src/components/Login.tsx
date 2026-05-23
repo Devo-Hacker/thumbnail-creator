@@ -115,7 +115,7 @@ const Login = () => {
       {/* LEFT image panel */}
       <div className="login-img-side">
         <img
-          src="https://plus.unsplash.com/premium_photo-1666277012790-bd7f5a15df84?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://st2.depositphotos.com/2001755/8564/i/450/depositphotos_85647140-stock-photo-beautiful-landscape-with-birds.jpg"
           alt="CliqueBait visual"
         />
         <div className="login-img-overlay">
