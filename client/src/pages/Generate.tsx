@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
-import { colorSchemes, type AspectRatio, type IThumbnail, type ThumbnailStyle, } from "../assets/assets";
+import { colorSchemes, dummyThumbnails, type AspectRatio, type IThumbnail, type ThumbnailStyle, } from "../assets/assets";
 import SoftBackDrop from "../components/SoftBackDrop";
 import AspectRatioSelector from "../components/AspectRatioSelector";
 import StyleSelector from "../components/StyleSelector";
 import ColorSchemeSelector from "../components/ColorSchemeSelector";
 import PreviewPanel from "../components/PreviewPanel";
 
-const generate = () => {
+const Generate = () => {
 
     const {id} = useParams();
     const [title, setTitle] = useState('');
@@ -21,7 +21,28 @@ const generate = () => {
 
    const [styleDropdownOpen , setStyleDropdownOpen] = useState(false);
 
+    const handleGenerate = async () =>{
 
+    }
+
+    const fetchThumbnail = () => {
+      if(id){
+        const thumbnail : any = dummyThumbnails.find((thumbnail)=> thumbnail._id === id);
+        setThumbnail(thumbnail)
+        setAdditionalDetails(thumbnail.user_prompt)
+        setTitle(thumbnail.title)
+        setColorSchemeId(thumbnail.color_scheme)
+        setAspectRatio(thumbnail.aspect_ratio)
+        setStyle(thumbnail.style)
+        setLoading(false)
+      }
+    }
+
+    useEffect(()=>{
+      if(id){
+        fetchThumbnail()
+      }
+    },[id])
 
 
   return (
@@ -66,7 +87,7 @@ const generate = () => {
                 </div>
 
                 {!id && (
-                  <button className="text-[15px] w-full py-3.5 rounded-xl font-medium bg-linear-to-b from-cyan-600 to-indigo-600 hover:from-cyan-700 disabled: cursor-not-allowed transition-colors">
+                  <button onClick={handleGenerate} className="text-[15px] w-full py-3.5 rounded-xl font-medium bg-linear-to-b from-cyan-600 to-indigo-600 hover:from-cyan-700 disabled: cursor-not-allowed transition-colors">
                     {loading ? 'Generating....' : 'Generate Thumbnail'}
                   </button>
                 )}
@@ -88,4 +109,4 @@ const generate = () => {
   )
 }
 
-export default generate
+export default Generate
