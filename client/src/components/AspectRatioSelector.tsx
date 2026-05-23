@@ -1,14 +1,14 @@
-import { GripVertical, RectangleHorizontal, Square } from 'lucide-react'
+import { RectangleHorizontal, RectangleVertical, Square } from 'lucide-react'
 import { aspectRatios, type AspectRatio } from '../assets/assets'
 import type React from 'react'
-import { button } from 'motion/react-client';
+// import { button } from 'motion/react-client';
 
 const AspectRatioSelector = ({value, onChange} : {value: AspectRatio; onChange: (ratio: AspectRatio)=> void}) => {
 
     const iconMap = {
-        '16:9' : <RectangleHorizontal color='gray' className='size-6'/>,
-        '1:1' : <Square color='gray' className='size-6'/>,
-        '9:6' : <GripVertical className='size-6' />
+        '16:9' : <RectangleHorizontal color='cyan' className='size-6'/>,
+        '1:1' : <Square color='cyan' className='size-6'/>,
+        '9:16' : <RectangleVertical color='cyan' className='size-6' />
     } as Record<AspectRatio, React.ReactNode>
 
   return (
