@@ -147,7 +147,7 @@ export const dummyThumbnails = [
         image_url: thumb_6,
         isGenerating: false,
         createdAt: "2025-12-18T11:06:52.555Z",
-        updatedAt: "2025-12-18T11:07:18.715Z",
+        updatedAt: "2025-12-18T11:07:18.655Z",
         __v: 0,
     },
     {
@@ -207,7 +207,7 @@ export const yt_html = `
                 <div class="flex items-center gap-4">
                     <button class="flex items-center gap-1 px-3 py-1 border border-ytBorder rounded-full"><i data-lucide="plus"></i> Create</button>
                     <i data-lucide="bell"></i>
-                    <img src="https://i.pravatar.cc/40" class="size-8 rounded-full" />
+                    <img src="https://i.pravatar.cc/40?img=12" class="size-8 rounded-full" />
                 </div>
             </header>
 
@@ -226,12 +226,22 @@ export const yt_html = `
                         <a class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"><i data-lucide="thumbs-up"></i> Liked videos</a>
                         <hr class="border-ytBorder" />
                         <p class="px-3 text-xs text-gray-400 uppercase">Subscriptions</p>
-                        <a target="_blank" href="https://www.youtube.com/@GreatStackDev?sub_confirmation=1" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"> <img src="https://greatstack.dev/favicon.ico" class="rounded-full size-7" /> GreatStack </a>
-                        
-                        <a class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"> <img src="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico" class="rounded-full size-7" /> Netflix </a>
-                        <a class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2"> <img src="https://images.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="rounded-full size-7" /> Google </a>
+
+                        <!-- ✅ YOUR CHANNEL -->
+                        <a target="_blank" href="https://www.youtube.com/@generalniladree4632" class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2">
+                           <img src="https://yt3.ggpht.com/b9AhmAg7YU_FXuRkawr_GH3srdjvDcZfGjixXUC0mVBtXqXbmlUZP_nittGhzjvTYIEKuhF3so8=s600-c-k-c0x00ffffff-no-rj-rp-mo" class="rounded-full h-9 w-9" />
+                            General Niladree
+                        </a>
+
+                        <a class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2">
+                            <img src="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2023.ico" class="rounded-full size-7" /> Netflix
+                        </a>
+                        <a class="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-yt2">
+                            <img src="https://images.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" class="rounded-full size-7" /> Google
+                        </a>
                     </nav>
                 </aside>
+
                 <!-- ========== MAIN CONTENT ========== -->
                 <main class="lg:ml-60 w-full px-6 py-6">
                     <!-- CATEGORY CHIPS -->
@@ -247,9 +257,9 @@ export const yt_html = `
 
                     <!-- VIDEO GRID -->
                     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- CARD -->
+
                         <article>
-                            <img src="https://picsum.photos/600/340?1" class="rounded-xl" />
+                            <img src="https://picsum.photos/600/340?1" class="rounded-xl w-full" />
                             <div class="flex gap-3 mt-3">
                                 <img src="https://i.pravatar.cc/36?1" class="rounded-full h-9 w-9" />
                                 <div>
@@ -261,7 +271,7 @@ export const yt_html = `
                         </article>
 
                         <article>
-                            <img src="https://picsum.photos/600/340?2" class="rounded-xl" />
+                            <img src="https://picsum.photos/600/340?2" class="rounded-xl w-full" />
                             <div class="flex gap-3 mt-3">
                                 <img src="https://i.pravatar.cc/36?2" class="rounded-full h-9 w-9" />
                                 <div>
@@ -273,7 +283,7 @@ export const yt_html = `
                         </article>
 
                         <article>
-                            <img src="https://picsum.photos/600/340?3" class="rounded-xl" />
+                            <img src="https://picsum.photos/600/340?3" class="rounded-xl w-full" />
                             <div class="flex gap-3 mt-3">
                                 <img src="https://i.pravatar.cc/36?3" class="rounded-full h-9 w-9" />
                                 <div>
@@ -284,20 +294,22 @@ export const yt_html = `
                             </div>
                         </article>
 
+                        <!-- ✅ YOUR THUMBNAIL CARD -->
                         <article>
-                            <img src="%%THUMBNAIL_URL%%" class="rounded-xl aspect-video object-top" />
+                            <img src="%%THUMBNAIL_URL%%" class="rounded-xl w-full aspect-video object-cover" />
                             <div class="flex gap-3 mt-3">
-                                <img src="https://i.pravatar.cc/36?4" class="rounded-full h-9 w-9" />
+                                <img src="https://yt3.ggpht.com/b9AhmAg7YU_FXuRkawr_GH3srdjvDcZfGjixXUC0mVBtXqXbmlUZP_nittGhzjvTYIEKuhF3so8=s600-c-k-c0x00ffffff-no-rj-rp-mo" class="rounded-full h-9 w-9" />
+                            General Niladree
                                 <div>
                                     <h3 class="font-semibold line-clamp-2">%%TITLE%%</h3>
-                                    <p class="text-sm text-gray-400">Neo TY Channel</p>
-                                    <p class="text-sm text-gray-400">2.3M views • 12 days ago</p>
+                                    <a href="https://www.youtube.com/@generalniladree4632" target="_blank" class="text-sm text-gray-400 hover:text-white transition-colors">General Niladree</a>
+                                    <p class="text-sm text-gray-400">views • Just now</p>
                                 </div>
                             </div>
                         </article>
 
                         <article>
-                            <img src="https://picsum.photos/600/340?5" class="rounded-xl" />
+                            <img src="https://picsum.photos/600/340?5" class="rounded-xl w-full" />
                             <div class="flex gap-3 mt-3">
                                 <img src="https://i.pravatar.cc/36?5" class="rounded-full h-9 w-9" />
                                 <div>
@@ -309,7 +321,7 @@ export const yt_html = `
                         </article>
 
                         <article>
-                            <img src="https://picsum.photos/600/340?6" class="rounded-xl" />
+                            <img src="https://picsum.photos/600/340?6" class="rounded-xl w-full" />
                             <div class="flex gap-3 mt-3">
                                 <img src="https://i.pravatar.cc/36?6" class="rounded-full h-9 w-9" />
                                 <div>
@@ -321,7 +333,7 @@ export const yt_html = `
                         </article>
 
                         <article>
-                            <img src="https://picsum.photos/600/340?7" class="rounded-xl" />
+                            <img src="https://picsum.photos/600/340?7" class="rounded-xl w-full" />
                             <div class="flex gap-3 mt-3">
                                 <img src="https://i.pravatar.cc/36?7" class="rounded-full h-9 w-9" />
                                 <div>
@@ -333,7 +345,7 @@ export const yt_html = `
                         </article>
 
                         <article>
-                            <img src="https://picsum.photos/600/340?8" class="rounded-xl" />
+                            <img src="https://picsum.photos/600/340?8" class="rounded-xl w-full" />
                             <div class="flex gap-3 mt-3">
                                 <img src="https://i.pravatar.cc/36?8" class="rounded-full h-9 w-9" />
                                 <div>
@@ -345,7 +357,7 @@ export const yt_html = `
                         </article>
 
                         <article>
-                            <img src="https://picsum.photos/600/340?9" class="rounded-xl" />
+                            <img src="https://picsum.photos/600/340?9" class="rounded-xl w-full" />
                             <div class="flex gap-3 mt-3">
                                 <img src="https://i.pravatar.cc/36?9" class="rounded-full h-9 w-9" />
                                 <div>
@@ -355,6 +367,7 @@ export const yt_html = `
                                 </div>
                             </div>
                         </article>
+
                     </section>
                 </main>
             </div>
