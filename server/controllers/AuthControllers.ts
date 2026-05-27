@@ -41,3 +41,37 @@ export const registerUser = async (req: Request, res: Response)=>{
 }
 
 //for login
+export const loginUser = async (req: Request, res: Response)=>{
+    try {
+        const {email, password} = req.body;
+
+        // find user by email
+        const user = await User.findOne({email});
+        if(!user){
+            return res.status(400).json({message: 'User already exists'})
+        }
+
+        const isPasswordCorrect = await bcrypt.compare(password, user.password)
+            if(!isPasswordCorrect){
+            return res.status(400).json({message: 'Invalid email or password'})
+        } 
+
+        // setting user data in session
+        req.session.isLoggedIn = true;
+        req.session.userId = user._id;
+
+        return res.json({
+            message: 'Login successful',
+            user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email
+            }
+        })
+
+    } catch (error: any) {
+        console.log(error)
+        res.status(500).json({message: error.message})
+    }
+}
+
